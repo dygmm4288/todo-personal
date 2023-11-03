@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import TodoList from "../../components/todo/TodoList";
-import useStorage from "../../lib/useStorage";
+import {
+  addTodo,
+  deleteTodo,
+  selectTodos,
+  toggleTodo,
+} from "../../reducers/todoSlice";
 import TodoForm from "./TodoFormContainer";
 
-const TODO_STORAGE_KEY = "todos";
-
 export default function TodoContainer() {
-  const [getStorage, setStorage] = useStorage([], TODO_STORAGE_KEY);
-  const [todos, setTodos] = useState(getStorage());
+  const todos = useSelector(selectTodos);
+  const dispatch = useDispatch();
   const [doneTodos, workingTodos] = todos.reduce(
     (a, c) => {
       a[c.isDone ? 0 : 1].push(c);
@@ -15,11 +19,6 @@ export default function TodoContainer() {
     },
     [[], []],
   );
-
-  const reflectTodos = (nextTodos) => {
-    setTodos(nextTodos);
-    setStorage(nextTodos);
-  };
   // 이벤트 핸들러
   const handleEnrollTodo = (title, content) => {
     if (!title || !content) return;
@@ -30,24 +29,14 @@ export default function TodoContainer() {
       isDone: false,
       id: Date.now(),
     };
-    reflectTodos(todos.concat(newTodo));
+    dispatch(addTodo(newTodo));
   };
 
   const handleRemoveTodo = (id) => () => {
-    reflectTodos(todos.filter((todo) => todo.id !== id));
+    dispatch(deleteTodo(id));
   };
   const handleToggleTodo = (id) => () => {
-    reflectTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            isDone: !todo.isDone,
-          };
-        }
-        return { ...todo };
-      }),
-    );
+    dispatch(toggleTodo(id));
   };
 
   return (
