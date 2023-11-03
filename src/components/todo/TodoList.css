@@ -13,6 +13,7 @@ ul section {
   border: 2px solid green;
   padding: 1rem;
   box-sizing: border-box;
+  background-color: rgb(255, 255, 255, 0.9);
 }
 ul section h2 {
   margin: 0;
