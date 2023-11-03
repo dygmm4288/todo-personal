@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import TodoForm from "../../components/todo/TodoForm";
 import TodoList from "../../components/todo/TodoList";
 import useStorage from "../../lib/useStorage";
+import TodoForm from "./TodoForm";
 
 const TODO_STORAGE_KEY = "todos";
 
 export default function TodoContainer() {
-  const [getStorage, setStorage] = useStorage([], TODO_STORAGE_KEY, concat);
+  const [getStorage, setStorage] = useStorage([], TODO_STORAGE_KEY);
   const [todos, setTodos] = useState(getStorage());
   const [doneTodos, workingTodos] = todos.reduce(
     (a, c) => {
@@ -21,8 +21,7 @@ export default function TodoContainer() {
     setStorage(nextTodos);
   };
   // 이벤트 핸들러
-  const handleEnrollTodo = (title, content) => (e) => {
-    e.preventDefault();
+  const handleEnrollTodo = (title, content) => {
     if (!title || !content) return;
 
     const newTodo = {
