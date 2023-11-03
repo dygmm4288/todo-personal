@@ -10,15 +10,17 @@ export default function TodoItem({
   handleToggleTodo,
 }) {
   return (
-    <section>
+    <section className='box'>
       <h2>{title}</h2>
       <p>{content}</p>
-      <TodoControlBtn role='remove' handleClickBtn={handleRemoveTodo(id)}>
-        삭제하기
-      </TodoControlBtn>
-      <TodoControlBtn role='toggle' handleClickBtn={handleToggleTodo(id)}>
-        {isDone ? "취소" : "완료"}
-      </TodoControlBtn>
+      <div className='btn-container'>
+        <TodoControlBtn role='remove' handleClickBtn={handleRemoveTodo(id)}>
+          삭제하기
+        </TodoControlBtn>
+        <TodoControlBtn role='toggle' handleClickBtn={handleToggleTodo(id)}>
+          {isDone ? "취소" : "완료"}
+        </TodoControlBtn>
+      </div>
     </section>
   );
 }
