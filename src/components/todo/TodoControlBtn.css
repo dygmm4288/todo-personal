@@ -1,0 +1,23 @@
+.control-btn {
+  flex-basis: 50%;
+  flex-shrink: 0;
+  background-color: transparent;
+  outline: none;
+  text-wrap: nowrap;
+  transition: all 0.2s ease;
+  border-style: solid;
+}
+.remove {
+  border-color: lightcoral;
+}
+.toggle {
+  border-color: lightgreen;
+}
+
+.remove:hover {
+  background-color: lightcoral;
+  color: white;
+}
+.toggle:hover {
+  background-color: lightgreen;
+}

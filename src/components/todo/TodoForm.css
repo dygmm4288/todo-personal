@@ -1,0 +1,39 @@
+form {
+  padding: 2rem 1rem;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+form button {
+  background-color: green;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 0.5rem 3rem;
+}
+form button:hover {
+  background-color: lightgreen;
+}
+form input.border-red:focus {
+  border-color: lightcoral;
+}
+form input.border-green:focus {
+  border-color: lightgreen;
+}
+.input-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.input-container label {
+  margin-right: 0.5rem;
+}
+.input-container input {
+  outline: none;
+  padding: 0.5rem 0.25rem;
+  border: 2px solid;
+  border-color: transparent;
+  box-sizing: border-box;
+}

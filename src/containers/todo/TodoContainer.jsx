@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TodoList from "../../components/todo/TodoList";
 import useStorage from "../../lib/useStorage";
-import TodoForm from "./TodoForm";
+import TodoForm from "./TodoFormContainer";
 
 const TODO_STORAGE_KEY = "todos";
 
@@ -54,13 +54,13 @@ export default function TodoContainer() {
     <>
       <TodoForm handleEnrollTodo={handleEnrollTodo} />
       <div>
-        <h2>working...불꽃</h2>
+        <h2>Working...🔥</h2>
         <TodoList
           todos={workingTodos}
           handleRemoveTodo={handleRemoveTodo}
           handleToggleTodo={handleToggleTodo}
         />
-        <h2>Done...!폭죽</h2>
+        <h2>Done...!🎉</h2>
         <TodoList
           todos={doneTodos}
           handleRemoveTodo={handleRemoveTodo}
@@ -70,5 +70,3 @@ export default function TodoContainer() {
     </>
   );
 }
-
-const concat = (prev, next) => prev.concat(next);

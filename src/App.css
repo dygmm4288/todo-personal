@@ -1,0 +1,14 @@
+#content-wrapper {
+  min-width: 800px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.box {
+  border-radius: 0.5rem;
+}
+.button {
+  padding: 0.5rem 3rem;
+}
