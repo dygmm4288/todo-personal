@@ -1,0 +1,19 @@
+#todo-wrapper {
+  min-width: 800px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 1rem;
+  overflow-y: overlay;
+}
+#todo-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+#todo-wrapper::-webkit-scrollbar-thumb {
+  outline: none;
+  border-radius: 10px; /* 스크롤바 둥근 테두리 */
+  background-color: rgba(34, 34, 34, 0.6);
+}
+#todo-wrapper::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
