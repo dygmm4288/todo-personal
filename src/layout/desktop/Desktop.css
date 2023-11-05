@@ -8,6 +8,7 @@
   align-items: center;
 
   padding: 2rem;
+  box-sizing: border-box;
 }
 .application-wrapper {
   width: 0;
@@ -21,8 +22,8 @@
 }
 .application-wrapper.active {
   backdrop-filter: blur(0.5rem);
-  width: 1200px;
-  height: 800px;
+  width: 80%;
+  height: 80%;
 }
 
 .application-header {
@@ -39,8 +40,8 @@
   border-top-right-radius: 0.5rem;
 }
 .application-header .circle {
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
 }
 
