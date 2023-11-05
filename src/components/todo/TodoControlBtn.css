@@ -1,11 +1,12 @@
 .control-btn {
-  flex-basis: 50%;
-  flex-shrink: 0;
+  width: 40%;
   background-color: transparent;
   outline: none;
   text-wrap: nowrap;
+  text-align: center;
   transition: all 0.2s ease;
   border-style: solid;
+  padding: 0.5rem 0.5rem;
 }
 .remove {
   border-color: lightcoral;
