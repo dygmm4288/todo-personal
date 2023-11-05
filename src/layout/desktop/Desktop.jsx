@@ -1,6 +1,6 @@
 import { ReactComponent as TodoSvg } from "../../assets/icon.svg";
+import DesktopFile from "../../containers/desktop/DesktopFile";
 import "./Desktop.css";
-import DesktopFile from "./DesktopFile";
 
 function Desktop() {
   return (
