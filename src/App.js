@@ -1,14 +1,8 @@
 import "./App.css";
-import Header from "./layout/Header";
-import Main from "./layout/Main";
+import Desktop from "./layout/desktop/Desktop";
 
 function App() {
-  return (
-    <div id='content-wrapper'>
-      <Header />
-      <Main />
-    </div>
-  );
+  return <Desktop />;
 }
 
 export default App;

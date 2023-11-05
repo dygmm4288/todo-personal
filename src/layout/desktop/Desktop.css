@@ -1,0 +1,64 @@
+#desktop {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem;
+}
+.application-wrapper {
+  width: 0;
+  height: 0;
+  box-shadow: 0px 10px 25px #555e;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  position: relative;
+  transition: width 0.5s ease-in, height 0.6s ease-in-out;
+  overflow: hidden;
+}
+.application-wrapper.active {
+  backdrop-filter: blur(0.5rem);
+  width: 1200px;
+  height: 800px;
+}
+
+.application-header {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: gray;
+  gap: 8px;
+  padding: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.application-header .circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.circle.red {
+  background-color: red;
+}
+.circle.orange {
+  background-color: orange;
+}
+.circle.green {
+  background-color: green;
+}
+.circle.red:hover {
+  background-color: lightcoral;
+}
+.circle.orange:hover {
+  background-color: orangered;
+}
+.circle.green:hover {
+  background-color: lightgreen;
+}
