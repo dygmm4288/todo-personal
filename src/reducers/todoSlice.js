@@ -4,6 +4,7 @@ const initialState = {
   todos: JSON.parse(localStorage.getItem(TODO_STORAGE_KEY)) || [],
 };
 const findById = (id) => (todo) => todo.id === id;
+const filterById = (id) => (todo) => todo.id !== id;
 const todoSlice = createSlice({
   name: "todoReducer",
   initialState,
@@ -12,7 +13,7 @@ const todoSlice = createSlice({
       state.todos.push(action.payload);
     },
     deleteTodo: (state, action) => {
-      state.todos = state.todos.filter(findById(action.payload));
+      state.todos = state.todos.filter(filterById(action.payload));
     },
     toggleTodo: (state, action) => {
       const todo = state.todos.find(findById(action.payload));
