@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import DesktopFile from "../../components/desktop/DesktopFile";
-import Header from "../../layout/todo/Header";
-import Main from "../../layout/todo/Main";
 
-function DesktopFileContainer({ SVG }) {
+function DesktopFileContainer({ SVG, ApplicationWrapper }) {
   const [isFocused, setIsFocused] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -29,38 +27,9 @@ function DesktopFileContainer({ SVG }) {
       isFocused={isFocused}>
       <ApplicationWrapper
         handleCloseApplication={handleCloseApplication}
-        handleResizeApplication={handleResizeApplication}>
-        <Header />
-        <Main />
-      </ApplicationWrapper>
+        handleResizeApplication={handleResizeApplication}
+      />
     </DesktopFile>
-  );
-}
-function ApplicationWrapper({
-  children,
-  handleCloseApplication,
-  handleResizeApplication,
-}) {
-  const applicationWrapperRef = useRef(null);
-  useEffect(() => {
-    setTimeout(() => {
-      applicationWrapperRef.current.classList.add("active");
-    }, 10);
-  }, []);
-
-  return (
-    <div ref={applicationWrapperRef} className='application-wrapper'>
-      <div className='application-header'>
-        <div className='circle red' onClick={handleCloseApplication}></div>
-        <div
-          className='circle orange'
-          onClick={handleResizeApplication(applicationWrapperRef)}></div>
-        <div
-          className='circle green'
-          onClick={handleResizeApplication(applicationWrapperRef)}></div>
-      </div>
-      {children}
-    </div>
   );
 }
 
