@@ -1,4 +1,8 @@
 import { useEffect, useRef } from "react";
+import {
+  EXPAND_SIZE,
+  REDUCE_SIZE,
+} from "../../containers/desktop/DesktopFileContainer";
 
 export default function ApplicationWrapper({
   children,
@@ -18,10 +22,16 @@ export default function ApplicationWrapper({
         <div className='circle red' onClick={handleCloseApplication}></div>
         <div
           className='circle orange'
-          onClick={handleResizeApplication(applicationWrapperRef)}></div>
+          onClick={handleResizeApplication(
+            applicationWrapperRef,
+            REDUCE_SIZE,
+          )}></div>
         <div
           className='circle green'
-          onClick={handleResizeApplication(applicationWrapperRef)}></div>
+          onClick={handleResizeApplication(
+            applicationWrapperRef,
+            EXPAND_SIZE,
+          )}></div>
       </div>
       {children}
     </div>
