@@ -8,13 +8,10 @@ export default configureStore({
   middleware: [middlewareStorage],
 });
 
-function middlewareStorage(store) {
-  return function (next) {
-    return function (action) {
-      const result = next(action);
-      const { todos } = store.getState().todosReducer;
-      localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(todos));
-      return result;
-    };
+function middlewareStorage({ getState }) {
+  return (next) => (action) => {
+    next(action);
+    const { todos } = getState().todosReducer;
+    localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(todos));
   };
 }

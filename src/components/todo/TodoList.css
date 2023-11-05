@@ -6,14 +6,18 @@ ul {
   gap: 0.5rem;
   padding: 0;
 }
-
 ul section {
   width: 320px;
   min-height: 150px;
-  border: 2px solid green;
-  padding: 1rem;
+  /* border: 2px solid green; */
+
+  padding: 1.5rem 1rem;
   box-sizing: border-box;
-  background-color: rgb(255, 255, 255, 0.9);
+  background-color: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(0.3rem);
+}
+ul section:hover {
+  background-color: white;
 }
 ul section h2 {
   margin: 0;
