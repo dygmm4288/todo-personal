@@ -5,8 +5,10 @@ import ApplicationWrapper from "../desktop/ApplicationWrapper";
 export default function TodoApplication(props) {
   return (
     <ApplicationWrapper {...props}>
-      <Header />
-      <Main />
+      <div id='todo-wrapper'>
+        <Header />
+        <Main />
+      </div>
     </ApplicationWrapper>
   );
 }
