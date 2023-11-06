@@ -1,6 +1,7 @@
 import { ReactComponent as TodoSvg } from "../../assets/icon.svg";
 import TodoApplication from "../../components/todo/TodoApplication";
 import DesktopFileContainer from "../../containers/desktop/DesktopFileContainer";
+import WidgetContainer from "../../containers/desktop/WidgetContainer";
 import "./Desktop.css";
 function Desktop() {
   return (
@@ -9,6 +10,9 @@ function Desktop() {
         SVG={TodoSvg}
         ApplicationWrapper={TodoApplication}
       />
+      <div id='widget-wrapper'>
+        <WidgetContainer />
+      </div>
     </div>
   );
 }

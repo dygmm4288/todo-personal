@@ -6,6 +6,7 @@ export default function TodoList({
   todos,
   handleRemoveTodo,
   handleToggleTodo,
+  handleCheckFavorite,
 }) {
   return (
     <ul>
@@ -15,6 +16,7 @@ export default function TodoList({
             {...todo}
             handleRemoveTodo={handleRemoveTodo}
             handleToggleTodo={handleToggleTodo}
+            handleCheckFavorite={handleCheckFavorite}
           />
         </li>
       ))}

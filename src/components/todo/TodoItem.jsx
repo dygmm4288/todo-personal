@@ -1,4 +1,6 @@
 import React from "react";
+import { ReactComponent as StarSvg } from "../../assets/Star.svg";
+import { ReactComponent as StarFillSvg } from "../../assets/StarFill.svg";
 import TodoControlBtn from "./TodoControlBtn";
 
 export default function TodoItem({
@@ -6,6 +8,8 @@ export default function TodoItem({
   title,
   content,
   isDone,
+  isFavorite,
+  handleCheckFavorite,
   handleRemoveTodo,
   handleToggleTodo,
 }) {
@@ -20,6 +24,9 @@ export default function TodoItem({
         <TodoControlBtn role='toggle' handleClickBtn={handleToggleTodo(id)}>
           {isDone ? "취소" : "완료"}
         </TodoControlBtn>
+      </div>
+      <div className='favorite-wrapper' onClick={handleCheckFavorite(id)}>
+        {isFavorite ? <StarFillSvg /> : <StarSvg />}
       </div>
     </section>
   );

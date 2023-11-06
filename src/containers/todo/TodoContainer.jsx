@@ -2,12 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TodoList from "../../components/todo/TodoList";
 import {
-  addTodo,
   deleteTodo,
   selectTodos,
+  toggleFavorite,
   toggleTodo,
 } from "../../reducers/todoSlice";
-import TodoForm from "./TodoFormContainer";
+import TodoFormContainer from "./TodoFormContainer";
 
 export default function TodoContainer() {
   const todos = useSelector(selectTodos);
@@ -19,18 +19,6 @@ export default function TodoContainer() {
     },
     [[], []],
   );
-  // 이벤트 핸들러
-  const handleEnrollTodo = (title, content) => {
-    if (!title || !content) return;
-
-    const newTodo = {
-      title,
-      content,
-      isDone: false,
-      id: Date.now(),
-    };
-    dispatch(addTodo(newTodo));
-  };
 
   const handleRemoveTodo = (id) => () => {
     dispatch(deleteTodo(id));
@@ -38,22 +26,27 @@ export default function TodoContainer() {
   const handleToggleTodo = (id) => () => {
     dispatch(toggleTodo(id));
   };
+  const handleCheckFavorite = (id) => () => {
+    dispatch(toggleFavorite(id));
+  };
 
   return (
     <>
-      <TodoForm handleEnrollTodo={handleEnrollTodo} />
+      <TodoFormContainer />
       <div>
         <h2>Working...🔥</h2>
         <TodoList
           todos={workingTodos}
           handleRemoveTodo={handleRemoveTodo}
           handleToggleTodo={handleToggleTodo}
+          handleCheckFavorite={handleCheckFavorite}
         />
         <h2>Done...!🎉</h2>
         <TodoList
           todos={doneTodos}
           handleRemoveTodo={handleRemoveTodo}
           handleToggleTodo={handleToggleTodo}
+          handleCheckFavorite={handleCheckFavorite}
         />
       </div>
     </>
