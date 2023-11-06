@@ -11,9 +11,12 @@ export default function ApplicationWrapper({
 }) {
   const applicationWrapperRef = useRef(null);
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       applicationWrapperRef.current.classList.add("active");
     }, 10);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
