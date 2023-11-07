@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ReactComponent as StarSvg } from "../../assets/Star.svg";
 import { ReactComponent as StarFillSvg } from "../../assets/StarFill.svg";
-import { alter } from "../../lib/alter";
+import { reverseAlter } from "../../lib/alter";
 import TodoControlBtn from "./TodoControlBtn";
 
 export const REMOVE = "remove";
@@ -18,6 +18,7 @@ export default function TodoItem({
   handleRemoveTodo,
   handleToggleTodo,
 }) {
+  const getBtnContent = reverseAlter(() => !!isDone);
   return (
     <StyledTodoWrapper className='box'>
       <h2>{title}</h2>
@@ -27,7 +28,7 @@ export default function TodoItem({
           삭제하기
         </TodoControlBtn>
         <TodoControlBtn role={TOGGLE} handleClickBtn={handleToggleTodo(id)}>
-          {getBtnContent(() => !!isDone)}
+          {getBtnContent("취소", "완료")}
         </TodoControlBtn>
       </StyledButtonContainer>
       <StyledFavoriteWrapper onClick={handleCheckFavorite(id)}>
@@ -36,7 +37,6 @@ export default function TodoItem({
     </StyledTodoWrapper>
   );
 }
-const getBtnContent = alter("취소", "완료");
 
 const StyledTodoWrapper = styled.section`
   width: 320px;
