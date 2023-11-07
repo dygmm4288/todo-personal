@@ -1,6 +1,6 @@
 import React from "react";
+import styled from "styled-components";
 import TodoItem from "./TodoItem";
-import "./TodoList.css";
 
 export default function TodoList({
   todos,
@@ -9,7 +9,7 @@ export default function TodoList({
   handleCheckFavorite,
 }) {
   return (
-    <ul>
+    <StyledTodoList>
       {todos.map((todo) => (
         <li key={todo.id}>
           <TodoItem
@@ -20,6 +20,15 @@ export default function TodoList({
           />
         </li>
       ))}
-    </ul>
+    </StyledTodoList>
   );
 }
+
+const StyledTodoList = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+`;
