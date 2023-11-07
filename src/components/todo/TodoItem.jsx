@@ -18,7 +18,7 @@ export default function TodoItem({
   handleRemoveTodo,
   handleToggleTodo,
 }) {
-  const getBtnContent = reverseAlter(() => !!isDone);
+  const ifIsDoneElse = reverseAlter(() => !!isDone);
   return (
     <StyledTodoWrapper className='box'>
       <h2>{title}</h2>
@@ -28,7 +28,7 @@ export default function TodoItem({
           삭제하기
         </TodoControlBtn>
         <TodoControlBtn role={TOGGLE} handleClickBtn={handleToggleTodo(id)}>
-          {getBtnContent("취소", "완료")}
+          {ifIsDoneElse("취소", "완료")}
         </TodoControlBtn>
       </StyledButtonContainer>
       <StyledFavoriteWrapper onClick={handleCheckFavorite(id)}>
