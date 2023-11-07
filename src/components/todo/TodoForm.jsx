@@ -10,20 +10,19 @@ export default function TodoForm({
   title,
   content,
 }) {
-  const ifEmptyThen = (str) =>
-    str.length === 0 ? "border-red" : "border-green";
+  const isEmpty = (str) => str.length === 0;
   return (
     <StyledForm className='box' onSubmit={handleSubmit}>
       <StyledInputContainer>
         <TodoFormInput
-          className={ifEmptyThen(title)}
+          isEmpty={isEmpty(title)}
           inputRef={titleRef}
           label='제목'
           inputValue={title}
           handleChangeInputValue={handleTitleChange}
         />
         <TodoFormInput
-          className={ifEmptyThen(content)}
+          isEmpty={isEmpty(content)}
           label='내용'
           inputValue={content}
           handleChangeInputValue={handleContentChange}
@@ -54,25 +53,9 @@ const StyledForm = styled.form`
   button:hover {
     background-color: lightgreen;
   }
-  input.border-red:focus {
-    border-color: lightcoral;
-  }
-  input.border-green:focus {
-    border-color: lightgreen;
-  }
 `;
 const StyledInputContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  label {
-    margin-right: 0.5rem;
-  }
-  input {
-    outline: none;
-    padding: 0.5rem 0.25rem;
-    border: 2px solid;
-    border-color: transparent;
-    box-sizing: border-box;
-  }
 `;
