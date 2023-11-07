@@ -4,6 +4,9 @@ import { ReactComponent as StarSvg } from "../../assets/Star.svg";
 import { ReactComponent as StarFillSvg } from "../../assets/StarFill.svg";
 import TodoControlBtn from "./TodoControlBtn";
 
+export const REMOVE = "remove";
+export const TOGGLE = "toggle";
+
 export default function TodoItem({
   id,
   title,
