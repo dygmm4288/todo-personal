@@ -1,4 +1,5 @@
-import cn from "../../lib/cn";
+import styled from "styled-components";
+import { alterWithStyled } from "../../lib/alter";
 
 export default function Icon({
   handleClickIcon,
@@ -7,11 +8,19 @@ export default function Icon({
   handleDbClick,
 }) {
   return (
-    <div
-      className={cn("icon-svg", isFocused ? "active" : "")}
+    <StyledIcon
+      isFocused={isFocused}
       onClick={handleClickIcon}
       onDoubleClick={handleDbClick}>
       <SVG />
-    </div>
+    </StyledIcon>
   );
 }
+const getAElseB = alterWithStyled(({ isFocused }) => !!isFocused);
+const StyledIcon = styled.div`
+  z-index: 99;
+  rect {
+    fill: ${(props) =>
+      getAElseB("rgba(255, 255, 255, 0.3)", "transparent")(props)};
+  }
+`;
