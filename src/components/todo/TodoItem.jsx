@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ReactComponent as StarSvg } from "../../assets/Star.svg";
 import { ReactComponent as StarFillSvg } from "../../assets/StarFill.svg";
-import { reverseAlter } from "../../lib/alter";
+import { alter } from "../../lib/alter";
 import TodoControlBtn from "./TodoControlBtn";
 
 export const REMOVE = "remove";
@@ -18,7 +18,7 @@ export default function TodoItem({
   handleRemoveTodo,
   handleToggleTodo,
 }) {
-  const ifIsDoneElse = reverseAlter(() => !!isDone);
+  const ifIsDoneElse = alter(() => !!isDone);
   return (
     <StyledTodoWrapper className='box'>
       <h2>{title}</h2>

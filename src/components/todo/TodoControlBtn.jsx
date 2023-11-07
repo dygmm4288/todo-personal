@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { alterWithStyled } from "../../lib/alter";
 import { REMOVE } from "./TodoItem";
 
 export default function TodoControlBtn({ role, handleClickBtn, children }) {
@@ -13,11 +14,7 @@ export default function TodoControlBtn({ role, handleClickBtn, children }) {
     </StyledTodoControlBtn>
   );
 }
-
-const getAElseB =
-  (a, b) =>
-  ({ role }) =>
-    role === REMOVE ? a : b;
+const getAElseB = alterWithStyled(({ role }) => role === REMOVE);
 
 const StyledTodoControlBtn = styled.button`
   width: 40%;
@@ -28,9 +25,10 @@ const StyledTodoControlBtn = styled.button`
   border-style: solid;
   padding: 0.5rem 0.5rem;
 
-  border-color: ${getAElseB("lightcoral", "lightgreen")};
+  border-color: ${(props) => getAElseB("lightcoral", "lightgreen")(props)};
   &:hover {
-    background-color: ${getAElseB("lightcoral", "lightgreen")};
-    color: ${getAElseB("white", "")};
+    background-color: ${(props) =>
+      getAElseB("lightcoral", "lightgreen")(props)};
+    color: ${(props) => getAElseB("white", "")(props)};
   }
 `;
