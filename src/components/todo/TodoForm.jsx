@@ -10,19 +10,16 @@ export default function TodoForm({
   title,
   content,
 }) {
-  const isEmpty = (str) => str.length === 0;
   return (
     <StyledForm className='box' onSubmit={handleSubmit}>
       <StyledInputContainer>
         <TodoFormInput
-          isEmpty={isEmpty(title)}
           inputRef={titleRef}
           label='제목'
           inputValue={title}
           handleChangeInputValue={handleTitleChange}
         />
         <TodoFormInput
-          isEmpty={isEmpty(content)}
           label='내용'
           inputValue={content}
           handleChangeInputValue={handleContentChange}

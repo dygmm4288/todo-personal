@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { ReactComponent as StarSvg } from "../../assets/Star.svg";
 import { ReactComponent as StarFillSvg } from "../../assets/StarFill.svg";
 import TodoControlBtn from "./TodoControlBtn";
@@ -14,20 +15,57 @@ export default function TodoItem({
   handleToggleTodo,
 }) {
   return (
-    <section className='box'>
+    <StyledTodoWrapper className='box'>
       <h2>{title}</h2>
       <p>{content}</p>
-      <div className='btn-container'>
+      <StyledButtonContainer>
         <TodoControlBtn role='remove' handleClickBtn={handleRemoveTodo(id)}>
           삭제하기
         </TodoControlBtn>
         <TodoControlBtn role='toggle' handleClickBtn={handleToggleTodo(id)}>
           {isDone ? "취소" : "완료"}
         </TodoControlBtn>
-      </div>
-      <div className='favorite-wrapper' onClick={handleCheckFavorite(id)}>
+      </StyledButtonContainer>
+      <StyledFavoriteWrapper onClick={handleCheckFavorite(id)}>
         {isFavorite ? <StarFillSvg /> : <StarSvg />}
-      </div>
-    </section>
+      </StyledFavoriteWrapper>
+    </StyledTodoWrapper>
   );
 }
+
+const StyledTodoWrapper = styled.section`
+  width: 320px;
+  min-height: 150px;
+  /* border: 2px solid green; */
+
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255, 0.3);
+  backdrop-filter: blur(0.3rem);
+
+  position: relative;
+
+  &:hover {
+    background-color: white;
+  }
+
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+`;
+
+const StyledFavoriteWrapper = styled.div`
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+`;
+
+const StyledButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+`;
