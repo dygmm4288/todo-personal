@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import TodoFooter from "../../components/todo/TodoFooter";
 import TodoList from "../../components/todo/TodoList";
 import {
   deleteTodo,
@@ -49,6 +50,7 @@ export default function TodoContainer() {
           handleCheckFavorite={handleCheckFavorite}
         />
       </div>
+      <TodoFooter />
     </>
   );
 }

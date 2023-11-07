@@ -37,7 +37,6 @@ export default function ApplicationWrapper({
     </StyledApplicationWrapper>
   );
 }
-
 const StyledApplicationWrapper = styled.div`
   width: 0;
   height: 0;
