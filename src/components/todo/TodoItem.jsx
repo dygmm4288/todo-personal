@@ -58,6 +58,8 @@ const StyledTodoWrapper = styled.section`
   h2 {
     margin: 0;
     padding: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 `;
 

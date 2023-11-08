@@ -8,7 +8,7 @@ import TodoList from "../../components/todo/TodoList";
 import TodoThemeBtn from "../../components/todo/TodoThemeBtn";
 import {
   LIGHT_THEME,
-  selectTheme,
+  selectThemeName,
   toggleTheme,
 } from "../../reducers/themeSlice";
 import {
@@ -20,7 +20,7 @@ import {
 import TodoFormContainer from "./TodoFormContainer";
 export default function TodoContainer() {
   const todos = useSelector(selectTodos);
-  const theme = useSelector(selectTheme);
+  const theme = useSelector(selectThemeName);
   const dispatch = useDispatch();
   const [doneTodos, workingTodos] = todos.reduce(
     (a, c) => {
@@ -39,7 +39,7 @@ export default function TodoContainer() {
     dispatch(toggleFavorite(id));
   };
   const handleToggleTheme = () => {
-    dispatch(toggleTheme);
+    dispatch(toggleTheme());
   };
 
   return (
@@ -61,7 +61,11 @@ export default function TodoContainer() {
           handleCheckFavorite={handleCheckFavorite}
         />
         <TodoThemeBtn handleToggleTheme={handleToggleTheme}>
-          {theme === LIGHT_THEME ? <LightThemeSvg /> : <DarkThemeSvg />}
+          {theme === LIGHT_THEME ? (
+            <LightThemeSvg style={{ fill: "black" }} />
+          ) : (
+            <DarkThemeSvg style={{ fill: "white" }} />
+          )}
         </TodoThemeBtn>
       </StyledTodoContentWrapper>
       <TodoFooter />

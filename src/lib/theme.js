@@ -12,8 +12,8 @@ const lightTheme = {
 };
 const darkTheme = {
   todo: {
-    todoBoxColor: "rgb(255,255,255,0.3)",
-    todoBoxHoverColor: "white",
+    todoBoxColor: "rgba(100,100,100,0.5)",
+    todoBoxHoverColor: "rgba(100,100,100,0.35)",
     todoTextColor: "white",
   },
   application: {

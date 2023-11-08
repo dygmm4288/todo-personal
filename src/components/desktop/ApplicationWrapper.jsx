@@ -18,7 +18,7 @@ export default function ApplicationWrapper({
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [applicationWrapperRef.current?.className]);
 
   return (
     <StyledApplicationWrapper ref={applicationWrapperRef}>
