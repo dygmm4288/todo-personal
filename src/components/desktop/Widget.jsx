@@ -67,11 +67,8 @@ const StyledWidgetWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  justify-content: space-between;
   margin: 0;
   list-style: none;
-  padding: 0;
-  li {
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
-  }
+  align-items: stretch;
+  padding: 0.3rem;
 `;

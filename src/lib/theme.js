@@ -24,3 +24,12 @@ const darkTheme = {
 };
 const theme = { lightTheme, darkTheme };
 export default theme;
+
+/* 
+#2F4858
+#22687B
+#008A94
+#00AD9F
+#4ACF9C
+#90EE90
+*/
