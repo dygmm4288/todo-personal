@@ -55,4 +55,7 @@ const StyledInputContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  input {
+    color: black;
+  }
 `;

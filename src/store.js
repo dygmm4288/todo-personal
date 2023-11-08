@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import themeReducer from "./reducers/themeSlice";
 import todoReducer, { TODO_STORAGE_KEY } from "./reducers/todoSlice";
 
 export default configureStore({
   reducer: {
     todosReducer: todoReducer,
+    themeReducer: themeReducer,
   },
   middleware: [middlewareStorage],
 });

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import {
   EXPAND_SIZE,
@@ -18,7 +18,7 @@ export default function ApplicationWrapper({
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [applicationWrapperRef.current?.className]);
 
   return (
     <StyledApplicationWrapper ref={applicationWrapperRef}>
@@ -47,14 +47,19 @@ const StyledApplicationWrapper = styled.div`
   position: relative;
   transition: width 0.5s ease-in, height 0.6s ease-in-out;
   z-index: 99;
+  overflow: hidden;
   &.active {
-    backdrop-filter: blur(0.5rem);
+    backdrop-filter: ${(props) => props.theme.application.applicationBlur};
+    background-color: ${(props) => props.theme.application.backgroundColor};
     width: 80%;
     height: 80%;
   }
   &.full-size {
     width: 100%;
     height: 100%;
+  }
+  * {
+    color: ${(props) => props.theme.application.textColor};
   }
 `;
 
