@@ -7,11 +7,13 @@ export const StyledFooter = styled.div`
   left: 0;
   right: 0;
   height: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
   padding: 0.5rem 1rem;
   gap: 1rem;
   align-items: center;
-  color: white;
+  * {
+    color: white !important;
+  }
 `;
 export const StyledInfo = styled.div``;
 export const StyledMessage = styled.div`
