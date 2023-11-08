@@ -52,6 +52,8 @@ const StyledWidgetWrapper = styled.ul`
   gap: 1rem;
   justify-content: space-between;
   margin: 0;
+  list-style: none;
+  padding: 0;
   li {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
