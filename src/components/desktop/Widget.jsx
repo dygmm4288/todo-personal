@@ -1,18 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Widget({ children, widgetTitle }) {
+export const SMALL_SIZE = "widget/small";
+export const MID_SIZE = "widget/mid";
+export const LARGE_SIZE = "widget/large";
+
+export default function Widget({ type, children, widgetTitle }) {
   return (
-    <StyledWidget>
+    <StyledWidget type={type}>
       <h3>{widgetTitle}</h3>
       <StyledWidgetWrapper>{children}</StyledWidgetWrapper>
     </StyledWidget>
   );
 }
 
+function getHeightWithType({ type }) {
+  switch (type) {
+    case SMALL_SIZE:
+      return "300px";
+    case MID_SIZE:
+      return "450px";
+    case LARGE_SIZE:
+      return "600px";
+    default:
+      return "300px";
+  }
+}
+
 const StyledWidget = styled.div`
   width: 300px;
-  height: 600px;
+  height: ${getHeightWithType};
   overflow: auto;
   border: 1px solid black;
   border-radius: 0.5rem;

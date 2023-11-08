@@ -9,14 +9,14 @@ export default function Icon({
 }) {
   return (
     <StyledIcon
-      isFocused={isFocused}
+      $isFocused={isFocused}
       onClick={handleClickIcon}
       onDoubleClick={handleDbClick}>
       <SVG />
     </StyledIcon>
   );
 }
-const getAElseB = alterWithStyled(({ isFocused }) => !!isFocused);
+const getAElseB = alterWithStyled(({ $isFocused }) => !!$isFocused);
 const StyledIcon = styled.div`
   z-index: 99;
   rect {
