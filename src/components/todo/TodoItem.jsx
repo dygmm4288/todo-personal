@@ -45,14 +45,14 @@ const StyledTodoWrapper = styled.section`
 
   padding: 1.5rem 1rem;
   box-sizing: border-box;
-  background-color: rgb(100, 100, 100, 0.8);
+  background-color: ${(props) => props.theme.todo.todoBoxColor};
   backdrop-filter: blur(0.3rem);
-  color: white;
+  color: ${(props) => props.theme.todo.todoTextColor};
 
   position: relative;
 
   &:hover {
-    background-color: rgb(100, 100, 100, 0.5);
+    background-color: ${(props) => props.theme.todo.todoBoxHoverColor};
   }
 
   h2 {
