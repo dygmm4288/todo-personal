@@ -47,6 +47,7 @@ const StyledApplicationWrapper = styled.div`
   position: relative;
   transition: width 0.5s ease-in, height 0.6s ease-in-out;
   z-index: 99;
+  overflow: hidden;
   &.active {
     backdrop-filter: blur(0.5rem);
     width: 80%;
