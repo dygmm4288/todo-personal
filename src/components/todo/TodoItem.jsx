@@ -45,13 +45,14 @@ const StyledTodoWrapper = styled.section`
 
   padding: 1.5rem 1rem;
   box-sizing: border-box;
-  background-color: rgb(255, 255, 255, 0.3);
+  background-color: rgb(100, 100, 100, 0.8);
   backdrop-filter: blur(0.3rem);
+  color: white;
 
   position: relative;
 
   &:hover {
-    background-color: white;
+    background-color: rgb(100, 100, 100, 0.5);
   }
 
   h2 {

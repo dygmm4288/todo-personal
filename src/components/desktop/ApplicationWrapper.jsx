@@ -49,13 +49,17 @@ const StyledApplicationWrapper = styled.div`
   z-index: 99;
   overflow: hidden;
   &.active {
-    backdrop-filter: blur(0.5rem);
+    backdrop-filter: ${(props) => props.theme.application.applicationBlur};
+    background-color: ${(props) => props.theme.application.backgroundColor};
     width: 80%;
     height: 80%;
   }
   &.full-size {
     width: 100%;
     height: 100%;
+  }
+  * {
+    color: ${(props) => props.theme.application.textColor};
   }
 `;
 
