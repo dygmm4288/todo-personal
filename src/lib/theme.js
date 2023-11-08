@@ -22,5 +22,5 @@ const darkTheme = {
     backgroundColor: "black",
   },
 };
-
-export default { lightTheme, darkTheme };
+const theme = { lightTheme, darkTheme };
+export default theme;
