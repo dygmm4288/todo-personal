@@ -25,10 +25,9 @@ const StyledTodoControlBtn = styled.button`
   border-style: solid;
   padding: 0.5rem 0.5rem;
 
-  border-color: ${(props) => getAElseB("lightcoral", "lightgreen")(props)};
+  border-color: ${getAElseB("lightcoral", "lightgreen")};
   &:hover {
-    background-color: ${(props) =>
-      getAElseB("lightcoral", "lightgreen")(props)};
-    color: ${(props) => getAElseB("white", "")(props)};
+    background-color: ${getAElseB("lightcoral", "lightgreen")};
+    color: ${getAElseB("white", "")};
   }
 `;

@@ -20,7 +20,6 @@ const getAElseB = alterWithStyled(({ isFocused }) => !!isFocused);
 const StyledIcon = styled.div`
   z-index: 99;
   rect {
-    fill: ${(props) =>
-      getAElseB("rgba(255, 255, 255, 0.3)", "transparent")(props)};
+    fill: ${getAElseB("rgba(255, 255, 255, 0.3)", "transparent")};
   }
 `;
