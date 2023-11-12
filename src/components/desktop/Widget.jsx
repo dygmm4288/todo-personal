@@ -5,9 +5,9 @@ export const SMALL_SIZE = "widget/small";
 export const MID_SIZE = "widget/mid";
 export const LARGE_SIZE = "widget/large";
 
-export default function Widget({ type, children, widgetTitle }) {
+export default function Widget({ type, children, widgetTitle, ref }) {
   return (
-    <StyledWidget type={type}>
+    <StyledWidget type={type} ref={ref}>
       <h3>{widgetTitle}</h3>
       <StyledWidgetWrapper>{children}</StyledWidgetWrapper>
     </StyledWidget>

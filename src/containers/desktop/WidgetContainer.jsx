@@ -1,9 +1,12 @@
 import React from "react";
+import { DragDropContext } from "react-beautiful-dnd";
 import { useDispatch, useSelector } from "react-redux";
-import Widget, { LARGE_SIZE } from "../../components/desktop/Widget";
-import WidgetItem from "../../components/desktop/WidgetItem";
-import TodoWidget from "../../components/todo/TodoWidget";
-import { selectTodos, toggleTodo } from "../../reducers/todoSlice";
+import {
+  selectTodos,
+  toggleFavorite,
+  toggleTodo,
+} from "../../reducers/todoSlice";
+import DroppableWidget from "./DroppableWidget";
 
 export default function WidgetContainer() {
   const [todos, todosByImportant] = useSelector(selectTodos).reduce(classify, [
@@ -16,24 +19,34 @@ export default function WidgetContainer() {
   const handleToggleTodo = (id) => () => {
     dispatch(toggleTodo(id));
   };
+  const handleDragEnd = (result) => {
+    const { source, destination } = result;
+    if (!destination) return;
+
+    if (source.droppableId === destination.droppableId) return;
+
+    if (source.droppableId === "droppable-todo") {
+      // 'droppable-todo' to 'droppable-important'
+      const todo = todos[source.index];
+      console.log(todo);
+      if (todo.isFavorite) return;
+
+      dispatch(toggleFavorite(todo.id));
+      console.log("finish dispatch toggle Favorite");
+    } else {
+      const todo = todosByImportant[source.index];
+      dispatch(toggleFavorite(todo.id));
+    }
+  };
 
   return (
-    <>
-      <Widget widgetTitle={"Todos"}>
-        {todos.map((todo) => (
-          <WidgetItem key={todo.id}>
-            {<TodoWidget {...todo} handleToggleTodo={handleToggleTodo} />}
-          </WidgetItem>
-        ))}
-      </Widget>
-      <Widget widgetTitle={"Important"} type={LARGE_SIZE}>
-        {todosByImportant.map((todo) => (
-          <WidgetItem key={todo.id}>
-            {<TodoWidget {...todo} handleToggleTodo={handleToggleTodo} />}
-          </WidgetItem>
-        ))}
-      </Widget>
-    </>
+    <DragDropContext onDragEnd={handleDragEnd}>
+      <DroppableWidget droppableId='droppable-todo' items={todos} />
+      <DroppableWidget
+        droppableId='droppable-important'
+        items={todosByImportant}
+      />
+    </DragDropContext>
   );
 }
 function classify(ret, cur, index, arrRef) {

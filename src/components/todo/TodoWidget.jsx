@@ -1,4 +1,5 @@
 //TODO: 컬러 팔레트 이용해서 색깔 픽하면 그것대로 나올 수 있게끔 구조를 짜야한다.
+//TODO: drag and drop library 적용
 import React from "react";
 import styled from "styled-components";
 import { alterWithStyled } from "../../lib/alter";
