@@ -3,17 +3,12 @@
 import React from "react";
 import styled from "styled-components";
 import { alterWithStyled } from "../../lib/alter";
+import withDraggableWidget from "../desktop/withDraggableWidget";
+import withDroppableWidget from "../desktop/withDroppableWidget";
 
-export default function TodoWidget({
-  title,
-  content,
-  isDone,
-  handleToggleTodo,
-  id,
-}) {
+function TodoWidget({ title, content, isDone }) {
   return (
-    <StyledTodoWidgetWrapper onClick={handleToggleTodo(id)}>
-      <input type='radio' checked={!!isDone} />
+    <StyledTodoWidgetWrapper>
       <StyledTodoWidgetCotentWrapper checked={!!isDone}>
         <h4 className='widget-title'>{title}</h4>
         <p className='widget-content'>{content}</p>
@@ -21,10 +16,11 @@ export default function TodoWidget({
     </StyledTodoWidgetWrapper>
   );
 }
+export default withDroppableWidget(withDraggableWidget(TodoWidget));
 const ifCheckedThan = alterWithStyled(({ checked }) => checked);
 const StyledTodoWidgetWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 300px;
 
   display: flex;
   flex-direction: row;

@@ -1,12 +1,9 @@
 import React from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectTodos,
-  toggleFavorite,
-  toggleTodo,
-} from "../../reducers/todoSlice";
-import DroppableWidget from "./DroppableWidget";
+import DroppableWidget from "../../components/desktop/DroppableWidget";
+import TodoWidget from "../../components/todo/TodoWidget";
+import { selectTodos, toggleFavorite } from "../../reducers/todoSlice";
 
 export default function WidgetContainer() {
   const [todos, todosByImportant] = useSelector(selectTodos).reduce(classify, [
@@ -15,10 +12,6 @@ export default function WidgetContainer() {
   ]);
 
   const dispatch = useDispatch();
-
-  const handleToggleTodo = (id) => () => {
-    dispatch(toggleTodo(id));
-  };
   const handleDragEnd = (result) => {
     const { source, destination } = result;
     if (!destination) return;
@@ -41,7 +34,8 @@ export default function WidgetContainer() {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <DroppableWidget droppableId='droppable-todo' items={todos} />
+      {/* <DroppableWidget droppableId='droppable-todo' items={todos} /> */}
+      <TodoWidget droppableId={"droppable-todos"} items={todos} />
       <DroppableWidget
         droppableId='droppable-important'
         items={todosByImportant}
