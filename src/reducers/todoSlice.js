@@ -27,7 +27,6 @@ const todoSlice = createSlice({
         };
       },
     },
-    //TODO: 여기 코드 리팩토링 해야됨
     deleteTodo: (state, action) => {
       const todo = state.todos.find(findById(action.payload));
       state.todos = state.todos.filter(filterById(action.payload));
